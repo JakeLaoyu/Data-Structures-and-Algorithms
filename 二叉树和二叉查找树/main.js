@@ -25,7 +25,7 @@ function BST() {
  * @param  data 插入数据
  */
 function insert(data) {
-	var n = New Node(data, null, null)
+	var n = new Node(data, null, null)
 	if (this.root == null) {
 		this.root = n
 	} else {
@@ -59,3 +59,32 @@ function inOrder(node) {
 		inOrder(node.right)
 	}
 }
+
+// 先序遍历
+function preOrder(node) {
+	if (!(node == null)) {
+		console.log(node.show() + ' ')
+		preOrder(node.left)
+		preOrder(node.right)
+	}
+}
+
+// 后序遍历
+function postOrder(node) {
+	if (!(node == null)) {
+		postOrder(node.left)
+		postOrder(node.right)
+		console.log(node.show() + ' ')
+	}
+}
+
+
+var nums = new BST()
+nums.insert(23)
+nums.insert(45)
+nums.insert(16)
+nums.insert(37)
+nums.insert(3)
+nums.insert(99)
+nums.insert(22)
+postOrder(nums.root)
